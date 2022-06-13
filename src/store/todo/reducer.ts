@@ -7,7 +7,7 @@ export interface TodoListState {
 	mode: 'all' | 'active' | 'completed';
 }
 
-const initialState: TodoListState = {
+export const initialState: TodoListState = {
 	todos: [],
 	mode: 'all',
 };
@@ -24,11 +24,16 @@ export const todoReducer = (
 			return { ...state, todos: [...state.todos.filter((x) => !x.completed)] };
 		}
 		case TodoActionTypes.TOGGLE_TODO: {
-			const newTodos = [...state.todos];
-			newTodos.find((x) => x.id === action.payload)!.completed = !newTodos.find(
-				(x) => x.id === action.payload
-			)!.completed;
-			return { ...state, todos: newTodos };
+			return {
+				...state,
+				todos: [
+					...state.todos.map((todo) =>
+						todo.id === action.payload
+							? { ...todo, completed: !todo.completed }
+							: todo
+					),
+				],
+			};
 		}
 		case TodoActionTypes.CHANGE_MODE: {
 			return { ...state, mode: action.payload };

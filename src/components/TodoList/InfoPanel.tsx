@@ -33,6 +33,7 @@ export const TodoInfoPanel: React.FC = () => {
 						(mode === 'all' ? ' active-mode' : '')
 					}
 					onClick={() => handleModeChange('all')}
+					data-testid={'all-mode'}
 				>
 					All
 				</button>
@@ -42,6 +43,7 @@ export const TodoInfoPanel: React.FC = () => {
 						(mode === 'active' ? ' active-mode' : '')
 					}
 					onClick={() => handleModeChange('active')}
+					data-testid={'active-mode'}
 				>
 					Active
 				</button>
@@ -51,6 +53,7 @@ export const TodoInfoPanel: React.FC = () => {
 						(mode === 'completed' ? ' active-mode' : '')
 					}
 					onClick={() => handleModeChange('completed')}
+					data-testid={'completed-mode'}
 				>
 					Completed
 				</button>
