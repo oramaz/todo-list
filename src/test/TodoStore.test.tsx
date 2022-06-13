@@ -2,11 +2,7 @@ import React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { render, cleanup, screen, fireEvent } from '@testing-library/react';
-import {
-	initialState,
-	todoReducer,
-	TodoListState,
-} from '../store/todo/reducer';
+import { todoReducer } from '../store/todo/reducer';
 import { TodoListComponent } from '../components/TodoList/TodoList';
 import { TodoActionTypes } from '../store/todo/types';
 
