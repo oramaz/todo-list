@@ -19,7 +19,7 @@ export const TodoItems: React.FC = () => {
 	};
 
 	const getTodosByMode = () => {
-		return mode == 'all'
+		return mode === 'all'
 			? todos
 			: todos.filter((x) => {
 					if (mode === 'completed') return x.completed;
